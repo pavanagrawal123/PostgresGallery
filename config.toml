@@ -1,4 +1,4 @@
-baseURL = "http://postgresgallery.netlify.com/"
+baseURL = "https://postgresgallery.netlify.com/"
 languageCode = "en-us"
 title = "PostgreSQL Gallery"
 theme = "ananke"
