@@ -7,15 +7,13 @@
 
 
 ### Description
-Creating A Table On A SQL Server Can Help You. `How You Ask?` Well….
-Microsoft Softwares Like `MS Excel Cannot Do Things Postgresql Can`. Let’s Say You Wanna Create And Share Your Financial Conditions Depicted Through A Table To Someone Far Away From You, But You Don’t Want To Fuss Over The Work Of Making A Copy Of The File And Sending It Through An E-Mail. You Can Just Create The Same Table In Postgresql Which Will `Automatically Update The Data On It To A Public Server`, Which Can Be Accessed Easily By Anyone With The `Server Name And Password`.
-It Also Makes It Easier For People To Add The Values And Then Have Them Automatically Calculated Through A `Press Of A Button`.
-I Bet MS Excel Doesn’t Do That!
-But Wait There Is More Did I Tell You That You Can Even Share Your `Server With A Large Group Of People`. This Makes Your Work Even `More Quick and Easy`.
+Creating a table on a SQL server can help you in a variety of sectors.
+Let’s say we wanna create and share our financial conditions depicted through a table to someone far away from us, but don’t want to fuss over the work of making a copy of the file and sending it through an e-mail. We can just create the same table in Postgresql which will automatically update the data on it to a public server, which can be accessed easily by anyone with the server name and password.
+It also makes it easier for people to add the values and then have them automatically calculated through a press of a button
+It can even help us to share our server with a large group of people. This makes our work even more clean and quick.
 
 ### Code
 CREATE TABLE table1 (“Date” date, “Profit ($)” integer, “Loss ($)” integer, “Monthly Earnings ($)” integer);
-
 
 INSERT INTO public.table1 (
 	"Date", "Profit ($)", "Loss ($)", "Monthly Earnings ($)", "Total")
@@ -30,11 +28,8 @@ UPDATE public.table1
 
 
 ### Code Breakdown and Explanation
+The `UPDATE` statement updates the values of the “Monthly Earnings ($)” column by subtracting the values of the “Loss ($)” column from the “Profit ($)” one.
 
-The `CREATE TABLE` statement creates a new table with the name `“table1”` and adds the columns `“Date”, “Profit ($)”, “Loss ($)” and “Earnings ($)”` of the defined data types.
+The `Lag` function then creates a new column from the values of the “Monthly Earnings ($)” column just placing them row before.
 
-In the newly formed “table1”, using the statement `INSERT INTO` new `VALUES` are added.
-
-Finally, the `UPDATE` statement updates the values of the `“Earnings ($)”` column by subtracting the values of the `“Loss ($)”` column from the `“Profit ($)”` one.
-
-It also `SETS` the value of `“Total”` column by adding the previous row values with (Calculated through LAG function) the `“Monthly Earnings ($)”` column.
+It finally `SETS` the value of the “Total” column by adding the previous row values (Calculated through `LAG` function) with the `“Monthly Earnings ($)”` column.
