@@ -11,34 +11,37 @@ Sometimes, companies need to average multiple pieces of data together in a meani
 We could input some data for a transaction ID along with some dates:
 
 {{< highlight sql  >}}
-insert into DailyTransactionsDailyTransactions values ('SPIKE', 'FRI', 100)
+insert into DailyTransactions values ('CARL', 'MON', 100)
 insert into DailyTransactions values ('ANNA', 'MON', 100)
-insert into DailyTransactions values ('BOB', 'SUN', 400)
-insert into DailyTransactions values ('CARL', 'WED', 560)
-insert into DailyTransactions values ('BOB', 'TUE', 140)
+insert into DailyTransactions values ('CARL', 'MON', 1200)
+insert into DailyTransactions values ('ANNA', 'MON', 900)
+insert into DailyTransactions values ('BOB', 'MON', 400)
+insert into DailyTransactions values ('CARL', 'MON', 500)
+insert into DailyTransactions values ('BOB', 'MON', 200)
 {{< / highlight >}}
 
 After several pieces of data have been inputted, we can make a pivot table from it:
 
 {{< highlight sql  >}}
 SELECT * FROM DailyTransactions
-pivot (avg (TransactionAmount) for Day in ([MON],[TUE],[WED],[THU],[FRI],[SAT],[SUN])) as AvgTransactionsPerDay
+pivot (avg (TransactionAmount) for Day in ([MON])) as AvgTransactionsPerDay
 {{< / highlight >}}
 
 ### Code Breakdown and Explanation
-Here, the user would select all the information from the daily transactions table. Then, by using the pivot function, they would be able to organise it into a pivot table which clearly displays the average transactions per day to the user, by organising per day.
+Here, the user would select all the information from the daily transactions table. Then, by using the pivot function, they would be able to organise it into a pivot table which clearly displays only the average transactions per day to the user, by organising per day.
 The sample output would look something like this:
 
 ```
-TransacID  MON         TUE         WED         THU         FRI         SAT         SUN
----------- ----------- ----------- ----------- ----------- ----------- ----------- -----------
-ANNA       500         350         500         800         900         500         400
+TransacID  MON         
+---------- ----------- 
+ANNA       500         
 
 
-BOB        300         600         900         800         300         800         600
+BOB        300          
 
 
-CARL       600         150         500         300         200         100         400
+CARL       600          
 ```
 
 In conclusion, using Pivot Tables in SQL queries makes them far more efficient, especially when using them in organising income/monetary data.
+
