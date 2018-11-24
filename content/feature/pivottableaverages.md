@@ -24,7 +24,7 @@ After several pieces of data have been inputted, we can make a pivot table from 
 
 {{< highlight sql  >}}
 SELECT * FROM DailyTransactions
-pivot (avg (TransactionAmount) for Day in ([MON])) as AvgTransactionsPerDay
+crosstab(avg (TransactionAmount) for Day in([MON]) as AvgTransactionsPerDay)
 {{< / highlight >}}
 
 ### Code Breakdown and Explanation
