@@ -37,12 +37,12 @@ BOB        200         MON
 After several pieces of data have been inputted, we can make a pivot table from it, which calculates the averages of each person's transaction:
 
 {{< highlight sql  >}}
-SELECT * 
-FROM crosstab( 'SELECT TransacID, avg(AMOUNT)
-          FROM   DailyTransactions
-          GROUP  BY 1,2
-          ORDER  BY 1,2') 
-     AS final_result("TransacID" TEXT, "AMOUNT" NUMERIC, "DAY" TEXT);
+SELECT *
+FROM   crosstab(
+   'SELECT TransacID, avg(AMOUNT), DAY
+    FROM   DailyTransactions
+    ORDER  BY 1,2'
+   ) AS finalresult("TransacID" text, "MON" int, "TUE" int);
 {{< / highlight >}}
 
 ### Code Breakdown and Explanation
@@ -51,13 +51,13 @@ Here, the user would select all the information from the daily transactions tabl
 ```
 TransacID  MON         TUE
 ---------- ----------- ----------- 
-ANNA       500         
+ANNA       900         100
 
 
-BOB        300          
+BOB        200         400 
 
 
-CARL       600          
+CARL       650         500 
 ```
 
 In conclusion, using Pivot Tables in SQL queries makes them far more efficient, especially when using them in organising income/monetary data.
