@@ -9,7 +9,7 @@
 | 2018-12-01 | Christmas Tree |  | 200 | 3570 |
 
 ### Description
-Using balance sheets is a great way to keep track of assets and liabilities for both personal and business reasons. Spreadsheet software may be a good choice since it is simpler to access previous rows; however, this document entails the process of building a balance sheet in PostgreSQL in a simple manner.
+Using balance sheets is a great way to keep track of assets and liabilities for both personal and business reasons. Spreadsheet software may be a good choice since it is simpler to access previous rows; however, this document entails the process of building a balance sheet in PostgreSQL in a simple manner. In this real-life example shown above, it is easy to interpret what the person has bought or where they have lost money and where they have gained money.
 
 ### Code
 ```sql
