@@ -1,6 +1,7 @@
-|Implementing Balance Sheets in PostgreSQL|November 28, 2018  |
-|--|--|
-
+---
+title: "Implementing Balance Sheets in PostgreSQL"
+Date: "2018-11-30"
+---
 ### Example
 | Date | Title | Credit (+) | Debit (-) | Balance | 
 |--|--|--|--|--|
